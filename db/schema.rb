@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20161008123157) do
     t.string   "todo_name"
     t.integer  "user_id"
     t.integer  "project_id"
+    t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_todos_on_project_id", using: :btree

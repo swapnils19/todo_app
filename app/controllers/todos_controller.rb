@@ -15,10 +15,14 @@ class TodosController < ApplicationController
   # GET /todos/new
   def new
     @todo = Todo.new
+    @projects = Project.all.collect { |p| [ p.project_name, p.id ] }
+    @developers = User.developers.collect { |d| [ d.email, d.id ] }
   end
 
   # GET /todos/1/edit
   def edit
+    @projects = Project.all.collect { |p| [ p.project_name, p.id ] }
+    @developers = User.developers.collect { |d| [ d.email, d.id ] }
   end
 
   # POST /todos
@@ -69,6 +73,6 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:todo_name)
+      params.require(:todo).permit(:todo_name, :project_id, :user_id)
     end
 end

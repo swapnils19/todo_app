@@ -4,5 +4,20 @@
   <%= @todo.todo_name %>
 </p>
 
+<p>
+  <strong>Project name:</strong>
+  <%= @todo.project.project_name %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @todo.user.email %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @todo.status.blank? ? 'New' : @todo.status %>
+</p>
+
 <%= link_to 'Edit', edit_todo_path(@todo) %> |
 <%= link_to 'Back', todos_path %>
