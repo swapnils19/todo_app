@@ -1,14 +1,16 @@
+<div class="clear center">
+	<h3>Projects Summery</h3>
+</div>
 
-
-<h1>Projects Summery</h1>
-<table>
+<div class="clear">
+<table class="table table-striped center_text">
 	<tbody>
 		<!-- <td style="padding-top: 1%;" class="td_table_top">Status</td> -->
-	<% Todo::TODO_STATUSES.sort.each do |stat| %>
+	<%# Todo::TODO_STATUSES.sort.each do |stat| %>
 		<% @projects.each do |proj| %>
 			<td class="td_table_top">
 				<table>
-					<td><%= link_to proj.project_name, project_path(proj) %></td>
+					<td class="heading"><%= link_to proj.project_name, project_path(proj) %></td>
 					<% proj.todos.order(:status).each do |todo| %>
 					<tr>
 						<!-- <td><%#= todo.status %></td> -->
@@ -18,9 +20,14 @@
 				</table>
 			</td>
 		<% end %>
-	<% end %>
+	<%# end %>
 	<!-- <td style="padding-top: 1%;" class="td_table_top">Status</td> -->
 	</tbody>
 </table>
+</div>
 
-<%= link_to 'Developers Status', users_dashboard_admin_dashboard_path %>
+<div class="clear">
+	<%= link_to 'Developers Status', users_dashboard_admin_dashboard_path, class: 'btn btn-default' %>
+	<%= link_to 'Projects', projects_path, class: 'btn btn-default' %>
+</div>
+<br/>

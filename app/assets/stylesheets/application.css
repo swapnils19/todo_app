@@ -10,10 +10,51 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
 
 .td_table_top{
 	vertical-align: top;
+}
+
+.container{
+	border: solid 1px #e7e7e7;
+}
+
+.clear{
+	clear: both;
+	padding: 0.5%;
+}
+
+.center_div{
+	float: none;
+	margin: 0 auto;
+	display: block;
+}
+
+.alert{
+	color: #a94442
+}
+
+.center_text{
+	text-align: center;
+}
+
+.heading{
+	font-weight: bold;
+	font-size: 1em;
+}
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+
+a:hover{
+	background: inherit;
 }

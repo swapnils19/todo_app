@@ -1,37 +1,36 @@
-<%= form_for(todo) do |f| %>
-  <% if todo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
 
-      <ul>
+<%= bootstrap_form_for(todo) do |f| %>
+  <% if todo.errors.any? %>
+    <div id="error_explanation" class="alert">
+      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
       <% todo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p><%= message %></p>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :todo_name %>
+  <div class="field col-lg-8 clearfix">
+    <%#= f.label :todo_name %>
     <%= f.text_field :todo_name %>
   </div>
   
-  <div class="field">
-    <%= f.label :project_id %>
+  <div class="field col-lg-8 clearfix">
+    <%#= f.label :project_id %>
     <%= f.select :project_id, @projects %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
+  <div class="field col-lg-8 clearfix">
+    <%#= f.label :user_id %>
     <%= f.select :user_id, @developers %>
   </div>
 
-  <div class="field">
-    <%= f.label :status %>
+  <div class="field col-lg-8 clearfix">
+    <%#= f.label :status %>
     <%= f.select :status, Todo::TODO_STATUSES %>
   </div>
 
-  <div class="actions">
+  <div class="actions col-lg-8 clearfix">
     <%= f.submit %>
+    <%= link_to 'Back', todos_path, class: 'btn btn-default' %>
   </div>
 <% end %>

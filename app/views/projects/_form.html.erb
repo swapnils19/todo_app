@@ -1,4 +1,4 @@
-<%= form_for(project) do |f| %>
+<%= bootstrap_form_for(project) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :project_name %>
+  <div class="field col-lg-8 clearfix">
+    <%#= f.label :project_name %>
     <%= f.text_field :project_name %>
   </div>
 
-  <div class="actions">
+  <div class="actions col-lg-8 clearfix">
     <%= f.submit %>
+    <%= link_to 'Back', projects_path, class: 'btn btn-default'  %>
   </div>
 <% end %>

@@ -29,7 +29,7 @@ class Users::SessionsController < Devise::SessionsController
       # super
       case user.role
       when User::ADMIN
-        projects_path
+        users_dashboard_admin_dashboard_path
       when User::DEVELOPER
         todos_path
       else

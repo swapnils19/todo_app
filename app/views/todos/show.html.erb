@@ -1,23 +1,27 @@
-
-<p>
+<div class="well well-lg center_text">
+<div class="clear">
   <strong>Todo name:</strong>
   <%= @todo.todo_name %>
-</p>
+</div>
 
-<p>
+<div class="clear">
   <strong>Project name:</strong>
   <%= @todo.project.project_name %>
-</p>
+</div>
 
-<p>
+<div class="clear">
   <strong>Developer:</strong>
   <%= @todo.user.email %>
-</p>
+</div>
 
-<p>
+<div class="clear">
   <strong>Status:</strong>
   <%= @todo.status.blank? ? 'New' : @todo.status %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_todo_path(@todo) %> |
-<%= link_to 'Back', todos_path %>
+<div class="clear">
+	<%= link_to 'Edit', edit_todo_path(@todo), class: 'btn btn-default'  %>
+	<%= link_to 'Back', todos_path, class: 'btn btn-default'  %>
+</div>
+</div>
+<br/>

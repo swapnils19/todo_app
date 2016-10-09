@@ -1,7 +1,9 @@
 
-<h1>Todos</h1>
-
-<table>
+<div class="clear center">
+  <h3 class="center">Todos</h3>
+</div>
+<div class="clear">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Todo name</th>
@@ -15,17 +17,17 @@
         <td><%= todo.todo_name %></td>
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-      <% if User.admin?(current_user) %>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+        <td><%= link_to 'Delete Todo', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
-
+<div class="clear">
 <% if User.admin?(current_user) %>
-  <%= link_to 'New Todo', new_todo_path %>
-  <%= link_to 'Projects', projects_path %>
+  <%= link_to 'New Todo', new_todo_path, class: 'btn btn-default' %>
+  <%= link_to 'Projects', projects_path, class: 'btn btn-default' %>
 <% end %>
+</div>
+<br>

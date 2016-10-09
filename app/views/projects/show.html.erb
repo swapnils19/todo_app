@@ -18,13 +18,19 @@
         chart.draw(data, options);
       }
     </script>
-<p>
+
+<div class="well well-lg center_text">
+<div class="clear">
   <strong>Project name:</strong>
   <%= @project.project_name %>
-</p>
+</div>
+</div>
 
-<div id="piechart" style="width: 900px; height: 500px;" ></div>
+<div id="piechart" style="width: auto; height: auto;" ></div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Show Todos', todos_path(project: @project.id) %>
+<div class="clear">
+	<%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-default' %>
+	<%= link_to 'Back', projects_path, class: 'btn btn-default' %>
+	<%= link_to 'Show Todos', todos_path(project: @project.id), class: 'btn btn-default' %>
+</div>
+<br/>

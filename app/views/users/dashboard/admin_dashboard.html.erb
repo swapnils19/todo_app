@@ -1,16 +1,34 @@
-<h1>Developer's Summery</h1>
-<table>
+
+<div class="clear center">
+	<h3>Developer's Summery</h3>
+</div>
+
+<div class="clear">
+<table class="table table-striped center_text">
 	<tbody>
-		<th>Status</th>
-	<% @developers.each do |dev| %>
-		<th><%= dev.email %></th>
-		<% dev.todos.each do |todo| %>
-		<tr>
-			<td><%= todo.status %></td>
-			<td><%= link_to todo.todo_name, todo_path(todo) %></td>
-		</tr>
+		<!-- <td style="padding-top: 1%;" class="td_table_top">Status</td> -->
+	<%# Todo::TODO_STATUSES.sort.each do |stat| %>
+		<% @developers.each do |dev| %>
+			<td class="td_table_top">
+				<table>
+					<td class="heading"><%= dev.email %></td>
+					<% dev.todos.order(:status).each do |todo| %>
+					<tr>
+						<!-- <td><%#= todo.status %></td> -->
+						<td><%= link_to todo.todo_name, todo_path(todo) %></td>
+					</tr>
+					<% end %>
+				</table>
+			</td>
 		<% end %>
-	<% end %>
+	<%# end %>
+	<!-- <td style="padding-top: 1%;" class="td_table_top">Status</td> -->
 	</tbody>
 </table>
-<%= link_to 'Projects Summery', users_dashboard_projects_summery_path %>
+</div>
+
+<div class="clear">
+	<%= link_to 'Projects Summery', users_dashboard_projects_summery_path, class: 'btn btn-default' %>
+	<%= link_to 'Projects', projects_path, class: 'btn btn-default' %>
+</div>
+<br/>
