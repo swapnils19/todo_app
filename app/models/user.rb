@@ -7,10 +7,15 @@ class User < ApplicationRecord
   has_and_belongs_to_many :projects
   has_many :todos
 
-  DEVELOPER = 'developer'
-  ADMIN     = 'admin'
+  DEVELOPER = 'Developer'
+  ADMIN     = 'Admin'
+  ROLES     = [DEVELOPER, ADMIN]
 
   def self.developers
     User.where(role: DEVELOPER)
+  end
+
+  def self.admin?(current_user)
+    current_user.role == ADMIN
   end
 end

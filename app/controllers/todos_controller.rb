@@ -4,7 +4,9 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    # binding.pry
+    @project = params[:project].present? ? Project.find(params[:project]) : nil
+    @todos = @project.present? ? @project.todos : current_user.todos
   end
 
   # GET /todos/1

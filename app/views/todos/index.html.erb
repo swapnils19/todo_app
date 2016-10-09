@@ -15,7 +15,9 @@
         <td><%= todo.todo_name %></td>
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+      <% if User.admin?(current_user) %>
         <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +25,7 @@
 
 <br>
 
-<%= link_to 'New Todo', new_todo_path %>
+<% if User.admin?(current_user) %>
+  <%= link_to 'New Todo', new_todo_path %>
+  <%= link_to 'Projects', projects_path %>
+<% end %>
