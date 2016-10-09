@@ -1,0 +1,16 @@
+<h1>Developer's Summery</h1>
+<table>
+	<tbody>
+		<th>Status</th>
+	<% @developers.each do |dev| %>
+		<th><%= dev.email %></th>
+		<% dev.todos.each do |todo| %>
+		<tr>
+			<td><%= todo.status %></td>
+			<td><%= link_to todo.todo_name, todo_path(todo) %></td>
+		</tr>
+		<% end %>
+	<% end %>
+	</tbody>
+</table>
+<%= link_to 'Projects Summery', users_dashboard_projects_summery_path %>

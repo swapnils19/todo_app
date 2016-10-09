@@ -1,0 +1,26 @@
+
+
+<h1>Projects Summery</h1>
+<table>
+	<tbody>
+		<!-- <td style="padding-top: 1%;" class="td_table_top">Status</td> -->
+	<% Todo::TODO_STATUSES.sort.each do |stat| %>
+		<% @projects.each do |proj| %>
+			<td class="td_table_top">
+				<table>
+					<td><%= link_to proj.project_name, project_path(proj) %></td>
+					<% proj.todos.order(:status).each do |todo| %>
+					<tr>
+						<!-- <td><%#= todo.status %></td> -->
+						<td><%= link_to todo.todo_name, todo_path(todo) %></td>
+					</tr>
+					<% end %>
+				</table>
+			</td>
+		<% end %>
+	<% end %>
+	<!-- <td style="padding-top: 1%;" class="td_table_top">Status</td> -->
+	</tbody>
+</table>
+
+<%= link_to 'Developers Status', users_dashboard_admin_dashboard_path %>

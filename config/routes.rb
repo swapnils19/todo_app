@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  resources :projects
+  namespace :users do
+    get 'dashboard/admin_dashboard'
+    get 'dashboard/projects_summery'
+  end
+
+  resources :projects do
+    get :get_project_data
+  end
   resources :todos
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
   root 'todos#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # devise_scope :user do
-  #   root to: "devise/sessions#new"
-  # end
+  # get 'projects/get_project_data', to: 'projects#get_project_data'
 end

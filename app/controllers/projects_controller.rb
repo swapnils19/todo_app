@@ -61,6 +61,20 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def get_project_data
+    todos = Project.find(params[:project_id]).todos
+    new_todos = todos.collect { |t| t if t.status == Todo::NEW }
+    in_progress_todos = todos.collect { |t| t if t.status == Todo::IN_PROGRESS }
+    completed_todos = todos.collect { |t| t if t.status == Todo::COMPLETED }
+    json_array = [
+                  ['Status', 'Total Todos'],
+                  ['New', new_todos.compact.size],
+                  ['In Progress', in_progress_todos.compact.size],
+                  ['Completed', completed_todos.compact.size]
+                ]
+    render text: json_array
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
